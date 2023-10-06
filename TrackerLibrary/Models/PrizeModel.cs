@@ -12,6 +12,10 @@ namespace TrackerLibrary
     public class PrizeModel
     {
         /// <summary>
+        /// The unique indentifier for the prize
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
         /// Gets or sets the placement number for this prize (e.g., 1 for first place).
         /// </summary>
         public int PlaceNumber { get; set; }
@@ -30,5 +34,28 @@ namespace TrackerLibrary
         /// Gets or sets the percentage of the total prize pool this prize represents.
         /// </summary>
         public double PrizePercentage { get; set; }
+
+        public PrizeModel()
+        {
+
+        }
+
+        //override constructor
+        public PrizeModel(string placeName, string placeNumber, string prizeAmount, string prizePercentage)
+        {
+            PlaceName = placeName;
+
+            int placeNumberValue = 0;
+            int.TryParse(placeNumber, out placeNumberValue);
+            PlaceNumber = placeNumberValue;
+
+            decimal prizeAmountValue = 0;
+            decimal.TryParse(prizeAmount, out prizeAmountValue);
+            PrizeAmount = prizeAmountValue;
+
+            double prizePercentageValue = 0;
+            double.TryParse(prizePercentage, out prizePercentageValue);
+            PrizePercentage = prizePercentageValue;
+        }
     }
 }
