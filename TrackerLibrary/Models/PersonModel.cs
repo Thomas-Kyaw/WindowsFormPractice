@@ -12,6 +12,10 @@ namespace TrackerLibrary.Models
     public class PersonModel
     {
         /// <summary>
+        /// Gets or sets the unique identifier of the person.
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
         /// Gets or sets the first name of the person.
         /// </summary>
         public string FirstName { get; set; }
@@ -30,5 +34,13 @@ namespace TrackerLibrary.Models
         /// Gets or sets the cellphone number of the person.
         /// </summary>
         public string CellphoneNumber { get; set; }
+
+        public string FullName
+        {
+            get
+            {
+                return $"{FirstName} {LastName}";
+            }
+        }
     }
 }
